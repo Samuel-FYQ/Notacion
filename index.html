@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Samuel López Melián">
+
+    <title>Notación científica</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>Notación científica</h1>
+        </header>
+
+        <nav aria-label="Tipo de ejercicio">
+            <button
+                id="science"
+                class="selected"
+                aria-pressed="true">
+                A notación científica
+            </button>
+
+            <button
+                id="decimal"
+                aria-pressed="false">
+                A decimal
+            </button>
+        </nav>
+
+        <section class="card" id="exercise">
+            <div class="status">
+                <span id="position"></span>
+            </div>
+
+            <progress
+                id="progress"
+                value="0"
+                max="20"
+                aria-label="Ejercicios completados">
+            </progress>
+
+            <h2 id="instruction"></h2>
+
+            <div id="number" class="number"></div>
+
+            <form id="answerForm" novalidate>
+                <div id="scientificFields" class="fields">
+                    <label>
+                        Coeficiente
+                        <input
+                            id="coefficient"
+                            type="text"
+                            inputmode="decimal"
+                            autocomplete="off"
+                            placeholder="Ej.: 3,2">
+                    </label>
+
+                    <span class="times">× 10</span>
+
+                    <label>
+                        Exponente
+                        <input
+                            id="exponent"
+                            type="text"
+                            autocomplete="off"
+                            placeholder="Ej.: -3">
+                    </label>
+                </div>
+
+                <label id="decimalFields" hidden>
+                    Número decimal
+                    <input
+                        id="decimalAnswer"
+                        type="text"
+                        inputmode="decimal"
+                        autocomplete="off"
+                        placeholder="Ej.: 0,0045">
+                </label>
+
+                <p class="small">
+                    Usa coma o punto decimal, sin separadores de miles.
+                </p>
+
+                <div class="actions">
+                    <button
+                        type="submit"
+                        id="check"
+                        class="primary">
+                        Comprobar
+                    </button>
+
+                    <button type="button" id="hint">
+                        Ver pista
+                    </button>
+
+                    <button
+                        type="button"
+                        id="next"
+                        class="primary"
+                        hidden>
+                        Siguiente
+                    </button>
+                </div>
+            </form>
+
+            <p id="feedback" role="status" aria-live="polite"></p>
+            <p id="hintText" hidden></p>
+        </section>
+
+        <section id="finish" class="card" hidden>
+            <h2>¡Bloque completado!</h2>
+
+            <p id="result"></p>
+
+            <form id="diplomaForm">
+                <label for="studentName">
+                    Nombre y apellidos
+                </label>
+
+                <input
+                    id="studentName"
+                    type="text"
+                    autocomplete="name"
+                    maxlength="100"
+                    placeholder="Escribe tu nombre y apellidos"
+                    required>
+
+                <p class="small">
+                    Descarga tu diploma y entrégalo como imagen de la tarea.
+                </p>
+
+                <div class="actions">
+                    <button type="submit" class="primary">
+                        Descargar diploma
+                    </button>
+
+                    <button type="button" id="restart">
+                        Volver a practicar
+                    </button>
+                </div>
+            </form>
+
+            <p id="diplomaMessage" role="status" aria-live="polite"></p>
+
+            <canvas
+                id="diplomaCanvas"
+                width="1600"
+                height="1100"
+                aria-label="Vista previa del diploma"
+                hidden>
+            </canvas>
+        </section>
+    </main>
+
+    <footer class="author">
+        © 2026 Samuel López Melián
+    </footer>
+</body>
+</html>
